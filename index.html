@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            background: url("image.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            object-fit: cover;
+            background-position: center;
+        }
+
+        .container {
+            font-size: 50px;
+            width: 50%;
+            border: 1px solid #fff;
+            background-color: #0000003b;
+            box-shadow: 0 1px 50px 0 rgba(255, 252, 252, 0.842);
+            padding: 35px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .full-container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container h5 {
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+            animation: lighting 3s ease-in-out infinite;
+        }
+
+        @keyframes lighting {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.6);
+            }
+
+            100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .container button {
+            height: 40px;
+            width: 40px;
+            border-radius: 100px;
+            text-align: center;
+            font-size: 20px;
+            margin-right: 30px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
+
+
+        .container input {
+            width: 100px;
+            height: 40px;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            outline: none;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            background-image: linear-gradient(black, black),
+                linear-gradient(to right, #00ccff, #d500f9);
+        }
+        #result{
+            font-size: 35px;
+        }
+
+        .plus {
+            background: linear-gradient(to right, #00ccff, #d500f9);
+        }
+
+        .subtract {
+            background: linear-gradient(to right, #00ccff, #d500f9);
+        }
+
+        .multiplication {
+            background: linear-gradient(to right, #00ccff, #d500f9);
+        }
+
+        .divi {
+            background: linear-gradient(to right, #00ccff, #d500f9);
+        }
+        @media only screen and (max-width:460px){
+            .container{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full-container">
+        <div class="container">
+            <h5>Simple Calculator</h5>
+            <input type="text" id="number1" class="firstnumber" placeholder="number">
+            <input type="text" id="number2" class="2nd number" placeholder="number">
+            <br>
+            <button id="add" class="plus" value="sum" onClick="sum()">+</button>
+            <button id="subtract" class="subtract" value="subtract" onClick="subtract()">-</button>
+            <button id="multiply" class="multiplication" value="times" onClick="multiply()">x</button>
+            <button id="divide" value="divide" onClick="divide()" class="divi">/</button>
+            <h5 id="result">Result: </h5>
+        </div>
+    </div>
+    <script>
+        var firstNum, secondNum, result;
+        function setValues() {
+            firstNum = Number(document.getElementById("number1").value);
+            secondNum = Number(document.getElementById("number2").value);
+        }
+        function sum() {
+            setValues();
+            result = firstNum + secondNum;
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+
+        function subtract() {
+            setValues();
+            result = firstNum - secondNum;
+            document.getElementById("result").innerHTML = "Result: " + (result.toFixed(2));
+        }
+
+        function multiply() {
+            setValues();
+            result = firstNum * secondNum;
+            document.getElementById("result").innerHTML = "Result: " + (result.toFixed(2));
+        }
+
+        function divide() {
+            setValues();
+            result = firstNum / secondNum;
+            document.getElementById("result").innerHTML = "Result: " + (result.toFixed(2));
+        }
+
+    </script>
+
+</body>
+
+</html>
